@@ -23,8 +23,8 @@ export default function Home() {
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
 
   const currentLocation = {
-    latitude: location ? location?.coords.latitude : -15.916513,
-    longitude: location ? location?.coords.longitude : -47.773086,
+    latitude: location ? location?.coords.latitude : -15.905528,
+    longitude: location ? location?.coords.longitude : -47.761679,
   }
 
   async function fetchCategories() {
@@ -74,6 +74,7 @@ export default function Home() {
     fetchMarkets()
   }, [category])
 
+  console.log("currentLocation", currentLocation)
 
   return (
     <View style={{ flex: 1, backgroundColor: "#CECECE" }}>
