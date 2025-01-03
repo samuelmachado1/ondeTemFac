@@ -1,19 +1,23 @@
-import { prisma } from "@/database/prisma"
+import { prisma } from "@/database/prisma";
+import { reggaeNaPracaImage } from "@/utils/urlOfImages";
 
 async function seed() {
   await prisma.category.createMany({
     data: [
-      { id: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d", name: "Alimentação" },
-      { id: "52e81585-f71a-44cd-8bd0-49771e45da44", name: "Compras" },
-      { id: "57d6e5ff-35f6-4d21-a521-84f23d511d25", name: "Hospedagem" },
+      { id: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d", name: "Música" },
+      { id: "52e81585-f71a-44cd-8bd0-49771e45da44", name: "Literatura" },
+      {
+        id: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
+        name: "Formações/Oficinas",
+      },
       { id: "826910d4-187d-4c15-88f4-382b7e056739", name: "Cinema" },
-      { id: "abce52cf-b33b-4b3c-8972-eb72c66c83e4", name: "Padaria" },
+      { id: "abce52cf-b33b-4b3c-8972-eb72c66c83e4", name: "Outros" },
     ],
-  })
+  });
 
   await prisma.market.createMany({
     data: [
-      // ALIMENTAÇÃO
+      // MÚSICA
       {
         id: "012576ea-4441-4b8a-89e5-d5f32104c7c4",
         categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
@@ -27,6 +31,18 @@ async function seed() {
         phone: "(11) 94567-1212",
         cover:
           "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&h=300",
+      },
+      {
+        id: "012576ea-4441-4b8a-89e5-d5f32104c7c9",
+        categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name: "Reggae na Praça",
+        description: "Festival de Reggae",
+        latitude: -15.9055186,
+        longitude: -47.7616695,
+        coupons: 10,
+        address: "Praça do Reggae - Vila Nova - São Sebastião/DF",
+        phone: "(61) 94567-1212",
+        cover: reggaeNaPracaImage,
       },
       {
         id: "2bc11e34-5f30-4ba0-90fa-c1c98f649281",
@@ -327,7 +343,7 @@ async function seed() {
           "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300",
       },
     ],
-  })
+  });
 
   await prisma.rules.createMany({
     data: [
@@ -508,10 +524,10 @@ async function seed() {
         description: "Válido apenas para consumo no local",
       },
     ],
-  })
+  });
 }
 
 seed().then(() => {
-  console.log("Database seeded!")
-  prisma.$disconnect()
-})
+  console.log("Database seeded!");
+  prisma.$disconnect();
+});
