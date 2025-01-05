@@ -1,5 +1,17 @@
 import { prisma } from "@/database/prisma";
-import { reggaeNaPracaImage } from "@/utils/urlOfImages";
+import {
+  casaPauloFreireImage,
+  cineBrasiliaImage,
+  cineClubeImage,
+  cineExpressaoImage,
+  fridaLabImage,
+  pequenoWilliamImage,
+  reggaeNaPracaImage,
+  institutoMetamorfoseImage,
+  festivalBluesImage,
+  festivalCOMAImage,
+  sarauVAImage,
+} from "@/utils/urlOfImages";
 
 async function seed() {
   await prisma.category.createMany({
@@ -21,16 +33,14 @@ async function seed() {
       {
         id: "012576ea-4441-4b8a-89e5-d5f32104c7c4",
         categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
-        name: "Sabor Grill",
-        description:
-          "Churrascaria com cortes nobres e buffet variado. Experiência completa para os amantes de carne.",
-        latitude: -23.55974230991911,
-        longitude: -46.65814845249887,
+        name: "Festival de blues",
+        description: "Festival de blues de São Sebastião",
+        latitude: -15.9055184,
+        longitude: -47.7616695,
         coupons: 10,
-        address: "Av. Paulista - Bela Vista",
-        phone: "(11) 94567-1212",
-        cover:
-          "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&h=300",
+        address: "Praça do Reggae - Vila Nova - São Sebastião/DF",
+        phone: "(61) 94567-1212",
+        cover: festivalBluesImage,
       },
       {
         id: "012576ea-4441-4b8a-89e5-d5f32104c7c9",
@@ -41,50 +51,47 @@ async function seed() {
         longitude: -47.7616695,
         coupons: 10,
         address: "Praça do Reggae - Vila Nova - São Sebastião/DF",
-        phone: "(61) 94567-1212",
+        phone: "(61) 98239-1310",
         cover: reggaeNaPracaImage,
       },
       {
         id: "2bc11e34-5f30-4ba0-90fa-c1c98f649281",
         categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
-        name: "Café Central",
+        name: "Festival COMA",
         description:
-          "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
-        latitude: -23.559457108504436,
-        longitude: -46.66252581753144,
+          "Celebração da música, cultura e criatividade brasileira, que busca unir pessoas, culturas e ideias em uma comunhão inspiradora.",
+        latitude: -15.813447188556285,
+        longitude: -47.838287975555076,
         coupons: 10,
-        address: "Alameda Jaú - Jardim Paulista",
-        phone: "(12) 3456-7890",
-        cover:
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300",
+        address: "CCBB - Brasília",
+        phone: "(61) 3456-7890",
+        cover: festivalCOMAImage,
       },
       {
         id: "4197b830-aa9c-40d4-a22e-c05043588a77",
         categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
-        name: "Burguer Up",
+        name: "Latinidades",
         description:
-          "Hambúrgueres gourmet preparados na hora. Ingredientes frescos e combinações únicas.",
+          "Uma grande celebração da potência das mulheres negras! Multilinguagens",
         latitude: -23.56011117635681,
         longitude: -46.65636680690605,
         coupons: 10,
-        address: "Rua Peixoto Gomide - Jardim Paulista",
-        phone: "(13) 98765-4321",
+        address: "Parque da Cidade -  Brasília",
+        phone: "(61) 98765-4321",
         cover:
           "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=400&h=300",
       },
       {
         id: "4209c72f-9d14-410c-91af-c24d08f177cc",
         categoryId: "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
-        name: "Doce & Delícia",
-        description:
-          "Confeitaria com doces e sobremesas incríveis. Bolo de vitrine e especialidades artesanais.",
-        latitude: -23.562559674925577,
-        longitude: -46.6529362971225,
+        name: "Sarau VA",
+        description: "Uma noite repleta de música e poesia",
+        latitude: -15.805565851480075,
+        longitude: -48.13548964856591,
         coupons: 10,
-        address: "Rua Treze de Maio - Jardim Paulista",
-        phone: "(14) 2345-6789",
-        cover:
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300",
+        address: "QNP 19 - Ceilândia/DF",
+        phone: "(61) 2345-6789",
+        cover: sarauVAImage,
       },
       {
         id: "4e6dd864-f04a-4711-9db2-e5624fd32b8e",
@@ -100,7 +107,7 @@ async function seed() {
         cover:
           "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400&h=300",
       },
-      // COMPRAS
+      // LITERATURA
       {
         id: "6dbf1cd5-c20a-4e6a-bc9a-a26069825d2c",
         categoryId: "52e81585-f71a-44cd-8bd0-49771e45da44",
@@ -171,67 +178,62 @@ async function seed() {
         cover:
           "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=400&h=300",
       },
-      // HOSPEDAGEM
+      // FORMAÇÕES/OFICINAS
       {
         id: "7be85f5b-533f-4974-8c9e-75cae740041c",
         categoryId: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
-        name: "Hotel Céu Azul",
-        description:
-          "Hotel moderno com quartos aconchegantes. Ideal para relaxar.",
-        latitude: -23.554120626142016,
-        longitude: -46.65203378772091,
+        name: "Frida Lab",
+        description: "Casa de Cultura/Residência Artística",
+        latitude: -15.9077586,
+        longitude: -47.7638068,
         coupons: 10,
-        address: "Rua Dr. Penaforte Mendes - Bela Vista ",
-        phone: "(12) 1234-5678",
-        cover:
-          "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=400&h=300",
+        address: "Rua 10 Lote 15 - São José - São Sebastião/DF",
+        phone: "(61) 99821-3688",
+        cover: fridaLabImage,
       },
       {
         id: "806c7934-037b-4dcd-99bb-c0fc6f2c5a45",
         categoryId: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
-        name: "Casa Serena",
+        name: "Casa Paulo Freire",
         description:
-          "Pousada charmosa no coração da cidade, com ambiente tranquilo e serviço personalizado.",
-        latitude: -23.55165437523632,
-        longitude: -46.649795512210524,
+          "Inspirada na filosofia do notável e inesquecível educador Paulo Freire, a Casa de Paulo Freire é mais que uma escola de alfabetização de jovens e adultos",
+        latitude: -15.904827,
+        longitude: -47.78138,
         coupons: 10,
-        address: "Rua Frei Caneca - Consolação",
-        phone: "(13) 9876-5432",
-        cover:
-          "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300",
+        address: "Quadra 201 Casa 07 - Residencial Oeste - São Sebastião/DF",
+        phone: "(61) 98275-2193",
+        cover: casaPauloFreireImage,
       },
       {
         id: "8cf0433e-68de-4c2a-9fff-c0c2941ec521",
         categoryId: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
-        name: "Suites Urban",
+        name: "Comuna Panteras Negras - MST",
         description:
-          "Acomodações sofisticadas no centro da cidade. Perfeito para viagens de negócios ou lazer.",
-        latitude: -23.55466938453421,
-        longitude: -46.65173990250655,
+          "Formações e oficinas do Movimento dos Trabalhadores Rurais Sem Terra",
+        latitude: -15.6903448,
+        longitude: -47.7468545,
         coupons: 10,
-        address: "R. Dr. Penaforte Mendes - Bela Vista, São Paulo",
-        phone: "(14) 2345-6789",
-        cover:
-          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300",
+        address: "Assentamento Pequeno Willian - Planaltina/DF",
+        phone: "(61) 2345-6789",
+        cover: pequenoWilliamImage,
       },
       {
         id: "b2c3014d-64bd-4c01-95e9-7f408e12ff6f",
         categoryId: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
-        name: "Villa Encanto",
+        name: "Instituto Metamofose",
         description:
-          "Chalés rústicos em uma área tranquila. Experiência de hospedagem exclusiva com total privacidade.",
-        latitude: -23.56516128294298,
-        longitude: -46.66117774949042,
+          "Oficinas de artes plásticas e muralismo. Espaço de formação e cultura.",
+        latitude: -15.897683383705846,
+        longitude: -47.77353724263203,
         coupons: 10,
-        address: "Rua José Maria Lisboa - Jardins",
-        phone: "(15) 9876-5432",
-        cover:
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300",
+        address: "Rua 30A - Setor Tradicional - São Sebastião/DF",
+        phone: "(61) 9876-5432",
+        cover: institutoMetamorfoseImage,
       },
       {
         id: "b3a4dab2-1b83-4015-ba95-22f5770c6108",
         categoryId: "57d6e5ff-35f6-4d21-a521-84f23d511d25",
-        name: "Estalagem Real",
+        name: "ZEstalagem Real",
         description:
           "Hotel boutique com design clássico e atendimento de excelência. Uma estadia luxuosa e confortável.",
         latitude: -23.56210372033115,
@@ -246,46 +248,41 @@ async function seed() {
       {
         id: "bde73364-95c5-46e4-8084-79a7ca3824c4",
         categoryId: "826910d4-187d-4c15-88f4-382b7e056739",
-        name: "CineStar",
-        description:
-          "Cinema moderno com salas confortáveis e tecnologia de última geração.",
-        latitude: -23.548482381146595,
-        longitude: -46.659142416446386,
+        name: "CineClube Olaria",
+        description: "Cineclube do MTST São Sebastião.",
+        latitude: -15.9226512,
+        longitude: -47.7727767,
         coupons: 10,
-        address: "Av. Angélica - Consolação",
-        phone: "(17) 9876-5432",
-        cover:
-          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300",
+        address: "Núcleo Rural Morro da Cruz - São Sebastião - DF",
+        phone: "(61) 9876-5432",
+        cover: cineClubeImage,
       },
       {
         id: "c5271f4e-6058-4eda-8b08-0e7fb0b73a0d",
         categoryId: "826910d4-187d-4c15-88f4-382b7e056739",
-        name: "MovieLand",
-        description:
-          "Espaço cultural com uma seleção variada de filmes e festivais exclusivos.",
-        latitude: -23.544459765576214,
-        longitude: -46.639557261292346,
+        name: "Cine de expressão",
+        description: "Festival de Cinema da Ceilândia",
+        latitude: -15.812486,
+        longitude: -48.1055363,
         coupons: 10,
-        address: "R. 24 de Maio - República",
-        phone: "(11) 2345-6789",
-        cover:
-          "https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=400&h=300",
+        address: "Praça do cidadão - Ceilândia - DF",
+        phone: "(61) 2345-6789",
+        cover: cineExpressaoImage,
       },
       {
         id: "d21b8cad-8d01-4ffd-8117-a34d613cdcf5",
         categoryId: "826910d4-187d-4c15-88f4-382b7e056739",
-        name: "TelaMax",
+        name: "Festival de curtas do Cine Brasília",
         description:
           "Cinema de bairro com atmosfera aconchegante e opções de filmes clássicos e lançamentos.",
-        latitude: -23.545525145028346,
-        longitude: -46.641431974786606,
+        latitude: -15.8141473,
+        longitude: -47.902056,
         coupons: 10,
-        address: "Rua Sete de Abril - República",
-        phone: "(19) 9876-5432",
-        cover:
-          "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300",
+        address: "EQS 106/107 - Asa Sul - Brasília/DF",
+        phone: "(61) 9876-5432",
+        cover: cineBrasiliaImage,
       },
-      // PADARIA
+      // OUTROS
       {
         id: "def71683-e89f-4c3b-a652-868a02f54ae9",
         categoryId: "abce52cf-b33b-4b3c-8972-eb72c66c83e4",
@@ -349,7 +346,7 @@ async function seed() {
     data: [
       {
         marketId: "012576ea-4441-4b8a-89e5-d5f32104c7c4",
-        description: "Disponível até 31/12/2024",
+        description: "Disponível até 31/12/2025",
       },
       {
         marketId: "2bc11e34-5f30-4ba0-90fa-c1c98f649281",
@@ -361,7 +358,7 @@ async function seed() {
       },
       {
         marketId: "4209c72f-9d14-410c-91af-c24d08f177cc",
-        description: "Disponível até 31/12/2024",
+        description: "Disponível até 31/12/2025",
       },
       {
         marketId: "4e6dd864-f04a-4711-9db2-e5624fd32b8e",
