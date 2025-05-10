@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native"
-import { colors, fontFamily } from "@/styles/theme"
+import { StyleSheet } from "react-native";
+import { colors, fontFamily } from "@/styles/theme";
 
 export const s = StyleSheet.create({
   container: {
@@ -13,7 +13,7 @@ export const s = StyleSheet.create({
   },
   content: {
     flexDirection: "row",
-    backgroundColor: colors.green.soft,
+    backgroundColor: colors.blue.soft,
     paddingHorizontal: 8,
     paddingVertical: 10,
     borderRadius: 8,
@@ -26,4 +26,4 @@ export const s = StyleSheet.create({
     fontFamily: fontFamily.semiBold,
     textTransform: "uppercase",
   },
-})
+});

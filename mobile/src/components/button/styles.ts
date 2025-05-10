@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native"
-import { colors, fontFamily } from "@/styles/theme"
+import { StyleSheet } from "react-native";
+import { colors, fontFamily } from "@/styles/theme";
 
 export const s = StyleSheet.create({
   container: {
     height: 56,
     maxHeight: 56,
-    backgroundColor: colors.green.base,
+    backgroundColor: colors.blue.base,
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -17,4 +17,4 @@ export const s = StyleSheet.create({
     fontFamily: fontFamily.semiBold,
     fontSize: 16,
   },
-})
+});
