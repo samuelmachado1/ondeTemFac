@@ -35,7 +35,7 @@ export function Place({ data, ...rest }: Props) {
         </Text>
 
         <View style={s.footer}>
-          <IconTicket size={16} color={colors.red.base} />
+          <IconTicket size={16} color={colors.blue.base} />
           <Text style={s.tickets}>{data.coupons} cupons disponíveis</Text>
         </View>
       </View>

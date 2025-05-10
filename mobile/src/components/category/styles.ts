@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native"
-import { colors, fontFamily } from "@/styles/theme"
+import { StyleSheet } from "react-native";
+import { colors, fontFamily } from "@/styles/theme";
 
 export const s = StyleSheet.create({
   container: {
@@ -20,10 +20,10 @@ export const s = StyleSheet.create({
     fontFamily: fontFamily.regular,
   },
   containerSelected: {
-    backgroundColor: colors.green.base,
-    borderColor: colors.green.base,
+    backgroundColor: colors.blue.base,
+    borderColor: colors.blue.base,
   },
   nameSelected: {
     color: colors.gray[100],
   },
-})
+});

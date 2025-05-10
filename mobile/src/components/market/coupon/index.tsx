@@ -14,7 +14,7 @@ export function Coupon({ code }: Props) {
       <Text style={s.title}>Utilize esse cupom</Text>
 
       <View style={s.content}>
-        <IconTicket size={24} color={colors.green.light} />
+        <IconTicket size={24} color={colors.blue.light} />
         <Text style={s.code}>{code}</Text>
       </View>
     </View>
