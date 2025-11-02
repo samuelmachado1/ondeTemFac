@@ -2,7 +2,7 @@ import { Text, Pressable, PressableProps } from "react-native"
 
 import { s } from "./styles"
 import { colors } from "@/styles/theme"
-import { categoriesIcons } from "@/utils/categories-icons"
+import { segmentsIcons } from "@/utils/segments-icons"
 
 type Props = PressableProps & {
   name: string
@@ -10,8 +10,8 @@ type Props = PressableProps & {
   isSelected?: boolean
 }
 
-export function Category({ name, iconId, isSelected = false, ...rest }: Props) {
-  const Icon = categoriesIcons[iconId]
+export function Segment({ name, iconId, isSelected = false, ...rest }: Props) {
+  const Icon = segmentsIcons[iconId]
 
   return (
     <Pressable

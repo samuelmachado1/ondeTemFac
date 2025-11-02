@@ -8,42 +8,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Category {
+model Segment {
   id String  @id @default(uuid())
   name String
-  markets Market[]
+  projects Project[]
 
-  @@map("categories")
+  @@map("segments")
 }
 
-
-model Rules {
+model Project {
   id String  @id @default(uuid())
+  name String
+  proposer String // Nome do proponente
   description String
-
-  marketId String @map("market_id")
-  market Market @relation(fields: [marketId], references: [id])
-
-  @@map("rules")
-}
-
-model Market {
-  id String  @id @default(uuid())
-  name String
-  description  String
-  coupons Int
+  shortDescription String @map("short_description")
   
   latitude Float
   longitude Float
-
   address String
-  phone String
+  
+  startDate DateTime @map("start_date")
+  endDate DateTime @map("end_date")
+  
   cover String
   
-  categoryId String @map("category_id")
-  category Category @relation(fields: [categoryId], references: [id])
+  segmentId String @map("segment_id")
+  segment Segment @relation(fields: [segmentId], references: [id])
   
-  rules Rules[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-  @@map("markets")
+  @@map("projects")
 }

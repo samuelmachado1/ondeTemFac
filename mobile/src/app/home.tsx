@@ -7,48 +7,48 @@ import { router } from "expo-router"
 import { api } from "@/services/api"
 import { fontFamily, colors } from "@/styles/theme"
 
-import { Places } from "@/components/places"
-import { PlaceProps } from "@/components/place"
-import { Categories, CategoriesProps } from "@/components/categories"
+import { Projects } from "@/components/projects"
+import { ProjectProps } from "@/components/project"
+import { Segments, SegmentsProps } from "@/components/segments"
 
-type MarketsProps = PlaceProps & {
+type ProjectsDataProps = ProjectProps & {
   latitude: number
   longitude: number
 }
 
 export default function Home() {
-  const [categories, setCategories] = useState<CategoriesProps>([])
-  const [category, setCategory] = useState("")
-  const [markets, setMarkets] = useState<MarketsProps[]>([])
+  const [segments, setSegments] = useState<SegmentsProps>([])
+  const [segment, setSegment] = useState("")
+  const [projects, setProjects] = useState<ProjectsDataProps[]>([])
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
 
   const currentLocation = {
-    latitude: location ? location?.coords.latitude : -15.905528,
-    longitude: location ? location?.coords.longitude : -47.761679,
+    latitude: location ? location?.coords.latitude : -15.7942,
+    longitude: location ? location?.coords.longitude : -47.8822,
   }
 
-  async function fetchCategories() {
+  async function fetchSegments() {
     try {
-      const { data } = await api.get("/categories")
-      setCategories(data)
-      setCategory(data[0].id)
+      const { data } = await api.get("/segments")
+      setSegments(data)
+      setSegment(data[0].id)
     } catch (error) {
       console.log(error)
-      Alert.alert("Categorias", "Não foi possível carregar as categorias.")
+      Alert.alert("Segmentos", "Não foi possível carregar os segmentos culturais.")
     }
   }
 
-  async function fetchMarkets() {
+  async function fetchProjects() {
     try {
-      if (!category) {
+      if (!segment) {
         return
       }
 
-      const { data } = await api.get("/markets/category/" + category)
-      setMarkets(data)
+      const { data } = await api.get("/projects/segment/" + segment)
+      setProjects(data)
     } catch (error) {
       console.log(error)
-      Alert.alert("Locais", "Não foi possível carregar os locais.")
+      Alert.alert("Projetos", "Não foi possível carregar os projetos.")
     }
   }
 
@@ -66,22 +66,20 @@ export default function Home() {
   }
 
   useEffect(() => {
-    fetchCategories()
+    fetchSegments()
     getCurrentLocation()
   }, [])
 
   useEffect(() => {
-    fetchMarkets()
-  }, [category])
-
-  console.log("currentLocation", currentLocation)
+    fetchProjects()
+  }, [segment])
 
   return (
     <View style={{ flex: 1, backgroundColor: "#CECECE" }}>
-      <Categories
-        data={categories}
-        onSelect={setCategory}
-        selected={category}
+      <Segments
+        data={segments}
+        onSelect={setSegment}
+        selected={segment}
       />
 
       <MapView
@@ -89,8 +87,8 @@ export default function Home() {
         initialRegion={{
           latitude: currentLocation.latitude,
           longitude: currentLocation.longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
         }}
       >
         <Marker
@@ -102,7 +100,7 @@ export default function Home() {
           image={require("@/assets/location.png")}
         />
 
-        {markets.map((item) => (
+        {projects.map((item) => (
           <Marker
             key={item.id}
             identifier={item.id}
@@ -112,7 +110,7 @@ export default function Home() {
             }}
             image={require("@/assets/pin.png")}
           >
-            <Callout onPress={() => router.navigate(`/market/${item.id}`)}>
+            <Callout onPress={() => router.navigate(`/project/${item.id}`)}>
               <View>
                 <Text
                   style={{
@@ -139,7 +137,7 @@ export default function Home() {
         ))}
       </MapView>
 
-      <Places data={markets} />
+      <Projects data={projects} />
     </View>
   )
 }
