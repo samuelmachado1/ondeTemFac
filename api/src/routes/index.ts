@@ -1,12 +1,10 @@
-import { Router } from "express"
+import { Router } from "express";
 
-import { couponsRoutes } from "./coupons-route"
-import { marketsRoutes } from "./markets-route"
-import { categoriesRoutes } from "./categories-route"
+import { projectsRoutes } from "./projects-route";
+import { segmentsRoutes } from "./segments-route";
 
-const routes = Router()
-routes.use("/categories", categoriesRoutes)
-routes.use("/markets", marketsRoutes)
-routes.use("/coupons", couponsRoutes)
+const routes = Router();
+routes.use("/segments", segmentsRoutes);
+routes.use("/projects", projectsRoutes);
 
-export { routes }
+export { routes };

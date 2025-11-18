@@ -4,13 +4,13 @@ import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet"
 import { router } from "expo-router"
 
 import { s } from "./styles"
-import { Place, PlaceProps } from "../place"
+import { Project, ProjectProps } from "../project"
 
 type Props = {
-  data: PlaceProps[]
+  data: ProjectProps[]
 }
 
-export function Places({ data }: Props) {
+export function Projects({ data }: Props) {
   const dimensions = useWindowDimensions()
   const bottomSheetRef = useRef<BottomSheet>(null)
 
@@ -31,14 +31,14 @@ export function Places({ data }: Props) {
         data={data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Place
+          <Project
             data={item}
-            onPress={() => router.navigate(`/market/${item.id}`)}
+            onPress={() => router.navigate(`/project/${item.id}`)}
           />
         )}
         contentContainerStyle={s.content}
         ListHeaderComponent={() => (
-          <Text style={s.title}>Explore locais perto de você</Text>
+          <Text style={s.title}>Explore projetos culturais perto de você</Text>
         )}
         showsVerticalScrollIndicator={false}
       />

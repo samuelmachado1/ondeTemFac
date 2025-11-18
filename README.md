@@ -1,6 +1,13 @@
 # 📍 Onde Tem FAC
 
-Aplicativo mobile para localização de eventos culturais e locais de interesse, com sistema de cupons. Projeto desenvolvido com React Native (Expo) e Node.js.
+Plataforma de transparência do Fundo de Apoio à Cultura (FAC) do Distrito Federal. Aplicativo mobile que permite aos cidadãos visualizar projetos culturais aprovados pelo FAC em um mapa interativo. Projeto desenvolvido com React Native (Expo) e Node.js.
+
+## 🎯 Objetivo
+
+Promover transparência pública sobre os projetos culturais financiados pelo FAC-DF, permitindo que qualquer cidadão possa:
+- Visualizar projetos culturais em um mapa interativo
+- Filtrar projetos por segmento (Música, Teatro, Cinema, etc.)
+- Acessar informações detalhadas sobre cada projeto (proponente, período, localização)
 
 ## 🏗️ Estrutura do Projeto
 
@@ -66,9 +73,9 @@ pnpm prisma db seed
 ```
 
 Este comando irá criar:
-- Categorias (Música, Literatura, Formações/Oficinas, Cinema, Outros)
-- Eventos culturais de exemplo
-- Regras para cada evento
+- Segmentos culturais (Música, Teatro, Dança, Cinema, Artes Visuais, Literatura, Formação Cultural)
+- Projetos culturais de exemplo do FAC-DF
+- Informações completas dos projetos (proponente, datas, localização)
 
 ### 6. Inicie o servidor
 
@@ -80,10 +87,10 @@ O servidor estará rodando em: **http://localhost:3333**
 
 ### 🔍 Endpoints Disponíveis
 
-- `GET /categories` - Lista todas as categorias
-- `GET /markets/category/:categoryId` - Lista eventos por categoria
-- `GET /markets/:id` - Detalhes de um evento específico
-- `PATCH /coupons/:id` - Atualiza cupons de um evento
+- `GET /segments` - Lista todos os segmentos culturais
+- `GET /projects` - Lista todos os projetos cadastrados
+- `GET /projects/segment/:segmentId` - Lista projetos por segmento
+- `GET /projects/:id` - Detalhes de um projeto específico
 
 ---
 
@@ -263,13 +270,23 @@ ISC
 
 ---
 
-## 🎯 Próximos Passos
+## 🎯 Roadmap
 
-- [ ] Implementar autenticação de usuários
-- [ ] Adicionar filtros de busca avançados
-- [ ] Implementar sistema de favoritos
-- [ ] Adicionar notificações push
-- [ ] Integrar com mapas para rotas
+### MVP (Versão 1) - Transparência Pública ✅ Em Desenvolvimento
+- [x] Visualização de projetos em mapa
+- [x] Listagem de projetos por segmento
+- [x] Detalhes de projetos (nome, proponente, período, localização)
+- [ ] Filtros por segmento e localidade
+- [ ] Geolocalização do usuário
+- [ ] Sistema de autenticação para Gestor da Secretaria
+- [ ] CRUD de projetos (área administrativa)
+
+### Versão Completa (Futura)
+- [ ] Perfil "Proponente" - Submissão de documentos
+- [ ] Perfil "Secretaria" - Análise e acompanhamento
+- [ ] Sistema de prestação de contas
+- [ ] Notificações e alertas
+- [ ] Relatórios e dashboards
 
 ---
 
